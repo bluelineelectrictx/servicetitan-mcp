@@ -12,4 +12,4 @@ EXPOSE 8000
 
 ENV MCP_TRANSPORT=sse
 ENV HOST=0.0.0.0
-CMD python -c "import os; from servicetitan_mcp.server import mcp; mcp.run(transport=os.environ.get('MCP_TRANSPORT','stdio'))"
+CMD python -c "import os; from servicetitan_mcp.server import mcp; mcp.run(transport=os.environ.get('MCP_TRANSPORT','stdio'), host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))"
