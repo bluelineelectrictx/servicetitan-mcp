@@ -937,17 +937,8 @@ async def servicetitan_api_call(
 # ═══════════════════════════════════════════════════════════════════════
 
 def main():
-    """Run the MCP server — HTTP if PORT is set, otherwise stdio."""
-    port = os.environ.get("PORT")
-    if port:
-        mcp.run(
-            transport="streamable-http",
-            host="0.0.0.0",
-            port=int(port),
-            path="/mcp",
-        )
-    else:
-        mcp.run(transport="stdio")
+    """Run the MCP server via stdio transport."""
+    mcp.run(transport="stdio")
 
 
 if __name__ == "__main__":
